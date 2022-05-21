@@ -26,11 +26,10 @@ public class ChatRoomServiceImpl implements ChatRoomService {
         var hostName = inviteRequest.getHostName();
         var guestName = inviteRequest.getGuestName();
 
-        if(!roomByName.getMembers().contains(hostName) && !roomByName.getMembers().contains(guestName)) {
-            throw new NotAuthorizedException("Not authorized to add users to the room.");
-        } else {
-            chatRoomRepository.addMemberToRoom(guestName, roomByName.getName());
-        }
+        roomByName.map(r -> r.getMembers().contains(hostName) && r.getMembers().contains(guestName))
+                .orElseThrow(() -> new NotAuthorizedException("Not authorized to add users to the room."));
+
+        chatRoomRepository.addMemberToRoom(guestName, roomByName.get().getName());
     }
 }
 

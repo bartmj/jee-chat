@@ -1,6 +1,7 @@
 package pl.training.chat.messages.adapters.rest.api;
 
 import lombok.Setter;
+import pl.training.chat.messages.domain.exceptions.RoomNotFoundException;
 import pl.training.chat.messages.domain.models.ChatMessage;
 import pl.training.chat.messages.ports.MessageService;
 
@@ -22,22 +23,21 @@ public class MessageController {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response sendMessage(ChatMessage chatMessage) throws IOException, TimeoutException {
-        messageService.send(chatMessage);
+        try {
+            messageService.send(chatMessage);
+        } catch (RoomNotFoundException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
         return Response.status(Response.Status.OK).build();
     }
 
-    //testowo
+
+    @Path("history/{roomName}")
     @GET
-    public Response getAllMessages() {
+    public Response getMessageHistory(@PathParam("roomName") String roomName,
+                                      @QueryParam("memberName") String memberName) {
+        messageService.getRoomHistoryOfMember(memberName, roomName);
         return Response.status(Response.Status.OK).build();
     }
-
-//    @Path("history/{roomName}")
-//    @GET
-//    public Response getMessageHistory(@PathParam("roomName") String channelName,
-//                                      @QueryParam("memberName") String memberName) {
-//        messageService.
-//        return Response.status(Response.Status.OK).build();
-//    }
 
 }

@@ -9,4 +9,7 @@ public interface MessageService {
 
     void send(ChatMessage chatMessage) throws IOException, TimeoutException;
 
+    void getRoomHistoryOfMember(String memberName, String roomName);
+
 }
+

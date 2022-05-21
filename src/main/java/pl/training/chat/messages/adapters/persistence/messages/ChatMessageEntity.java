@@ -2,6 +2,7 @@ package pl.training.chat.messages.adapters.persistence.messages;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import java.time.Instant;
 @EqualsAndHashCode
 @Entity
 @NoArgsConstructor
+@Getter
 public class ChatMessageEntity {
 
     @Id

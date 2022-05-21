@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 @Singleton
 public class JpaChatMessageMapper {
 
-    ChatMessageEntity toEntity(ChatMessage chatMessage) {
+    public ChatMessageEntity toEntity(ChatMessage chatMessage) {
         return new ChatMessageEntity(chatMessage.getContent(),
                 chatMessage.getSenderName(),
                 chatMessage.getTimestamp(),

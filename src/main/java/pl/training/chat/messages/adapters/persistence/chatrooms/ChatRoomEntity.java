@@ -3,11 +3,9 @@ package pl.training.chat.messages.adapters.persistence.chatrooms;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import pl.training.chat.messages.adapters.persistence.messages.ChatMessageEntity;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @EqualsAndHashCode
@@ -22,7 +20,11 @@ public class ChatRoomEntity {
     String roomName;
     @ElementCollection
     List<String> members;
+    @OneToMany
+    List<ChatMessageEntity> messages;
 
     public ChatRoomEntity(String name, List<String> members) {
+
     }
+
 }
