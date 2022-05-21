@@ -2,18 +2,20 @@ package pl.training.chat.messages.domain.services;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import pl.training.chat.messages.domain.models.ChatMessage;
 import pl.training.chat.messages.ports.MessageRepository;
 import pl.training.chat.messages.ports.MessageService;
 
-import jakarta.inject.Inject;
-import jakarta.inject.Singleton;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 @Singleton
-@AllArgsConstructor(onConstructor_ = @Inject)
 @NoArgsConstructor
 public class ChatMessageService implements MessageService {
 
+    @Inject
+    @Setter
     private MessageRepository messageRepository;
 
     @Override

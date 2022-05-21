@@ -1,22 +1,18 @@
 package pl.training.chat.messages.domain.models;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Value;
+import lombok.*;
 
+import java.io.Serializable;
 import java.time.Instant;
-import java.util.List;
 
-@Builder
-@Value
-@Getter
+
+@Data
 public class ChatMessage {
 
-    String id;
     String content;
     String senderName;
     Instant timestamp;
-    String RoomName;
-    List<String> members;
+    String roomName;
+//    List<String> members;
 
 }

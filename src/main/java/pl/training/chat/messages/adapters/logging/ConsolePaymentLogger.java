@@ -2,9 +2,9 @@ package pl.training.chat.messages.adapters.logging;
 
 import lombok.extern.java.Log;
 
-import jakarta.interceptor.AroundInvoke;
-import jakarta.interceptor.Interceptor;
-import jakarta.interceptor.InvocationContext;
+import javax.interceptor.AroundInvoke;
+import javax.interceptor.Interceptor;
+import javax.interceptor.InvocationContext;
 
 @LogPayments
 @Interceptor

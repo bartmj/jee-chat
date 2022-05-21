@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:14.2-alpine
     ports:
-      - "9000:5432"
+      - "9001:5432"
     environment:
       - POSTGRES_DB=training
       - POSTGRES_USER=admin
