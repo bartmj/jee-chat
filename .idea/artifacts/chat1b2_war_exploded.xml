@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="chat1b2:war exploded">
-    <output-path>$PROJECT_DIR$/target/chat1b2-1.0-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/target/jee-example-1.0-SNAPSHOT</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
@@ -14,13 +14,20 @@
           <element id="module-output" name="chat1b2" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.24" />
           <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.3.3" />
           <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />
+          <element id="library" level="project" name="Maven: org.javamoney.moneta:moneta-core:1.4.2" />
+          <element id="library" level="project" name="Maven: org.javamoney.moneta:moneta-convert:1.4.2" />
+          <element id="library" level="project" name="Maven: org.javamoney.moneta:moneta-convert-imf:1.4.2" />
+          <element id="library" level="project" name="Maven: org.javamoney.moneta:moneta-convert-ecb:1.4.2" />
+          <element id="library" level="project" name="Maven: javax.money:money-api:1.1" />
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.3.2" />
+          <element id="library" level="project" name="Maven: org.mapstruct:mapstruct:1.4.2.Final" />
+          <element id="library" level="project" name="Maven: org.mapstruct:mapstruct-processor:1.4.2.Final" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/chat1b2-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/jee-example-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="chat1b2/web/Web" />
     </root>

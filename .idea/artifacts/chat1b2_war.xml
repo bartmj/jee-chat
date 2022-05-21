@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="chat1b2-1.0-SNAPSHOT.war">
+    <root id="archive" name="jee-example-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="chat1b2:war exploded" />
     </root>
   </artifact>
