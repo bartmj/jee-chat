@@ -2,9 +2,7 @@ package pl.training.chat.messages.domain.models;
 
 import lombok.*;
 
-import java.io.Serializable;
 import java.time.Instant;
-
 
 @Data
 public class ChatMessage {
@@ -13,6 +11,9 @@ public class ChatMessage {
     String senderName;
     Instant timestamp;
     String roomName;
-//    List<String> members;
+
+    public String toJsonString() {
+        return String.format("{\"content\":\"%s\",\"senderName\":\"%s\",\"timestamp\":\"%s\",\"roomName\":\"%s\"}", content, senderName, timestamp, roomName);
+    }
 
 }
