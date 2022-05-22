@@ -14,13 +14,13 @@
           <element id="module-output" name="chat1b2" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
           <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-jaxb-provider:4.7.3.Final" />
           <element id="library" level="project" name="Maven: org.jboss.spec.javax.xml.bind:jboss-jaxb-api_2.3_spec:2.0.0.Final" />
           <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.3-b02" />
           <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:2.3.3-b02" />
           <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.10" />
           <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:1.2.1" />
-          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final" />
           <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.3.3" />
           <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />
           <element id="library" level="project" name="Maven: org.javamoney.moneta:moneta-core:1.4.2" />

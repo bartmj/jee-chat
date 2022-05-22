@@ -23,9 +23,12 @@ Accept: application/xml
 <> 2022-05-22T115422.404.html
 
 ###
-GET http://localhost:8080/chat/api/messages/history/public?memberName=John
+GET http://localhost:8080/chat/api/messages/history/room1?memberName=John
 
 <> 2022-05-22T124955.200.json
 <> 2022-05-22T124028.200.json
 <> 2022-05-22T124020.200.json
 <> 2022-05-22T115733.500.html
+
+###
+GET http://localhost:8080/chat/api/files/0
