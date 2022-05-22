@@ -1,0 +1,31 @@
+### Create room - should not be able to create two same rooms
+POST http://localhost:8080/chat/api/rooms
+Content-Type: application/json
+Accept: application/xml
+
+{
+  "name": "public",
+  "members": ["John","Ann","Mark"]
+}
+
+###
+POST http://localhost:8080/chat/api/messages/send
+Content-Type: application/json
+Accept: application/xml
+
+{
+  "content": "Hello world",
+  "senderName": "John",
+  "roomName": "public"
+}
+
+<> 2022-05-22T120006.500.html
+<> 2022-05-22T115422.404.html
+
+###
+GET http://localhost:8080/chat/api/messages/history/public?memberName=John
+
+<> 2022-05-22T124955.200.json
+<> 2022-05-22T124028.200.json
+<> 2022-05-22T124020.200.json
+<> 2022-05-22T115733.500.html
