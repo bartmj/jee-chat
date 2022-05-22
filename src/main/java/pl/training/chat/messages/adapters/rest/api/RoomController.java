@@ -6,6 +6,7 @@ import pl.training.chat.messages.domain.models.InviteRequest;
 import pl.training.chat.messages.ports.ChatRoomService;
 
 import javax.inject.Inject;
+import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -25,9 +26,11 @@ public class RoomController {
 
     @POST
     public Response inviteMemberToChatRoom(InviteRequest inviteRequest) {
-        chatRoomService.process(inviteRequest);
+        try {
+            chatRoomService.process(inviteRequest);
+        } catch (NotAuthorizedException e) {
+            return Response.status(Response.Status.FORBIDDEN).build();
+        }
         return Response.status(Response.Status.OK).build();
     }
-
-
 }
