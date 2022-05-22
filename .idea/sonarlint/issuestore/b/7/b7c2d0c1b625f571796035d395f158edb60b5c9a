@@ -1,5 +1,0 @@
-
-o
-java:S62047"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨Ή8η™εδ0
-ƒ
-java:S1128"fRemove this unused import 'pl.training.chat.messages.adapters.persistence.messages.ChatMessageEntity'.(Α²Ò8ι™εδ0

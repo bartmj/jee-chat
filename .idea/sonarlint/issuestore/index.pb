@@ -15,10 +15,6 @@ Osrc/main/java/pl/training/chat/messages/domain/services/ChatMessageService.java
 Rsrc/main/java/pl/training/chat/messages/adapters/rest/api/dtos/ChatMessageDto.java,c/6/c6302a5467a2b1d42da3555232d55c9ff5ebdc08
 ‡
 Wsrc/main/java/pl/training/chat/messages/adapters/rest/api/mappers/DtoMessageMapper.java,9/5/9533769806479cb3afa5ab4f77942e659719bd53
-€
-Psrc/main/java/pl/training/chat/messages/domain/services/ChatRoomServiceImpl.java,b/2/b238f9643f7ed4a9cfbc6e9d77028c59dbeb99d7
-˜
-hsrc/main/java/pl/training/chat/messages/adapters/persistence/chatrooms/JpaChatRoomRepositoryAdapter.java,b/7/b7c2d0c1b625f571796035d395f158edb60b5c9a
 “
 csrc/main/java/pl/training/chat/messages/adapters/persistence/messages/JpaChatMessageRepository.java,4/3/4362f6b4b5238fc4142eaec7115c5035c998bb68
 }
