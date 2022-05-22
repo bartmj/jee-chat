@@ -14,8 +14,8 @@ public class JpaChatRoomRepository {
     @PersistenceContext
     EntityManager entityManager;
 
-    public void save(ChatRoomEntity chatMessage) {
-        entityManager.persist(chatMessage);
+    public void save(ChatRoomEntity chatRoomEntity) {
+        entityManager.persist(chatRoomEntity);
     }
 
     public Optional<ChatRoomEntity> getByName(String roomName) {

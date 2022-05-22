@@ -1,6 +1,7 @@
 package pl.training.chat.messages.domain.services;
 
 import lombok.Setter;
+import pl.training.chat.messages.domain.exceptions.RoomAlreadyExistsException;
 import pl.training.chat.messages.domain.models.ChatRoom;
 import pl.training.chat.messages.domain.models.InviteRequest;
 import pl.training.chat.messages.ports.ChatRoomRepository;
@@ -8,6 +9,7 @@ import pl.training.chat.messages.ports.ChatRoomService;
 
 import javax.inject.Inject;
 import javax.ws.rs.NotAuthorizedException;
+import java.util.Optional;
 
 public class ChatRoomServiceImpl implements ChatRoomService {
 
@@ -17,7 +19,12 @@ public class ChatRoomServiceImpl implements ChatRoomService {
 
     @Override
     public void createChatRoom(ChatRoom chatRoom) {
-        chatRoomRepository.save(chatRoom);
+        var roomByName = chatRoomRepository.getRoomByName(chatRoom.getName());
+        if (roomByName.isEmpty()) {
+            chatRoomRepository.save(chatRoom);
+        } else {
+            throw new RoomAlreadyExistsException();
+        }
     }
 
     @Override

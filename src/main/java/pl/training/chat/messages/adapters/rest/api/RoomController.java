@@ -1,6 +1,7 @@
 package pl.training.chat.messages.adapters.rest.api;
 
 import lombok.Setter;
+import pl.training.chat.messages.domain.exceptions.RoomAlreadyExistsException;
 import pl.training.chat.messages.domain.models.ChatRoom;
 import pl.training.chat.messages.domain.models.InviteRequest;
 import pl.training.chat.messages.ports.ChatRoomService;
@@ -20,8 +21,12 @@ public class RoomController {
 
     @POST
     public Response addNewChatRoom(ChatRoom chatRoom) {
-        chatRoomService.createChatRoom(chatRoom);
-        return Response.status(Response.Status.OK).build();
+        try {
+            chatRoomService.createChatRoom(chatRoom);
+            return Response.status(Response.Status.OK).build();
+        } catch (RoomAlreadyExistsException e) {
+            return Response.status(Response.Status.FORBIDDEN).build();
+        }
     }
 
     @POST
