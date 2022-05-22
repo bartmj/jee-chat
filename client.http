@@ -1,10 +1,10 @@
-### Create room - should not be able to create two same rooms
+### Create room
 POST http://localhost:8080/chat/api/rooms
 Content-Type: application/json
 Accept: application/xml
 
 {
-  "name": "room1",
+  "name": "room3",
   "members": ["John","Ann","Mark"]
 }
 
@@ -14,21 +14,14 @@ Content-Type: application/json
 Accept: application/xml
 
 {
-  "content": "Hello bye",
+  "content": "Works",
   "senderName": "John",
   "roomName": "room1"
 }
 
-<> 2022-05-22T120006.500.html
-<> 2022-05-22T115422.404.html
-
 ###
-GET http://localhost:8080/chat/api/messages/history/room1?memberName=John
+GET http://localhost:8080/chat/api/messages/history/room2?memberName=John
 
-<> 2022-05-22T124955.200.json
-<> 2022-05-22T124028.200.json
-<> 2022-05-22T124020.200.json
-<> 2022-05-22T115733.500.html
 
 ### Get File
 GET http://localhost:8080/chat/api/files/room1/1

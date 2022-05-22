@@ -10,17 +10,13 @@ services:
       - POSTGRES_PASSWORD=admin
       - PGDATA=/data
     command: [ "postgres", "-c", "log_statement=all" ]
-    # volumes:
-    #  - ./data:/data
-#  rabbitmq:
-#    container_name: "rabbitmq"
-#    image: rabbitmq:3-management
-#    environment:
-#        - RABBITMQ_DEFAULT_USER=guest
-#        - RABBITMQ_DEFAULT_PASS=guest
-#    ports:
-#        # AMQP protocol port
-#        - '5674:5674'
-#        # HTTP management UI
-#        - '15674:15674'
-
+  rabbitmq3:
+    container_name: "some-rabbit"
+    hostname: "my-rabbit"
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - '15672:15672'
+      - '5672:5672'
