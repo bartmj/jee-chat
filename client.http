@@ -31,4 +31,4 @@ GET http://localhost:8080/chat/api/messages/history/room1?memberName=John
 <> 2022-05-22T115733.500.html
 
 ### Get File
-GET http://localhost:8080/chat/api/files/1
+GET http://localhost:8080/chat/api/files/room1/1

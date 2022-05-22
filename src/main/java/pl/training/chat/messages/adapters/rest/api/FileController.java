@@ -23,9 +23,10 @@ public class FileController {
     @Setter
     private FileService fileService;
 
+    @Path("{room}")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
-    public void uploadFile(MultipartFormDataInput incomingFile) throws IOException {
+    public void uploadFile(MultipartFormDataInput incomingFile, String roomName) throws IOException {
 
         InputPart inputPart = incomingFile.getFormDataMap().get("file").get(0);
         InputStream uploadedInputStream = inputPart.getBody(InputStream.class, null);
@@ -48,7 +49,7 @@ public class FileController {
 
     private String getContentTypeOfUploadedFile(String contentTypeHeader) {
         if (contentTypeHeader == null || contentTypeHeader.isEmpty()) {
-            return "unkown";
+            return "unknown";
         } else {
             return contentTypeHeader.replace("[", "").replace("]", "");
         }
@@ -68,10 +69,10 @@ public class FileController {
         return "unknown";
     }
 
-    @Path("{id}")
+    @Path("{room}/{id}")
     @GET
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
-    public Response getFile(@PathParam("id") Long id) {
+    public Response getFile(@PathParam("room") String room ,@PathParam("id") Long id) {
 
         FileUpload file = fileService.get(FileUpload.class, id);
 
