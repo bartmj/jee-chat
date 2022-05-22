@@ -4,7 +4,7 @@ Content-Type: application/json
 Accept: application/xml
 
 {
-  "name": "public",
+  "name": "room1",
   "members": ["John","Ann","Mark"]
 }
 
@@ -14,9 +14,9 @@ Content-Type: application/json
 Accept: application/xml
 
 {
-  "content": "Hello world",
+  "content": "Hello bye",
   "senderName": "John",
-  "roomName": "public"
+  "roomName": "room1"
 }
 
 <> 2022-05-22T120006.500.html

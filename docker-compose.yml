@@ -12,15 +12,15 @@ services:
     command: [ "postgres", "-c", "log_statement=all" ]
     # volumes:
     #  - ./data:/data
-  rabbitmq:
-    container_name: "rabbitmq"
-    image: rabbitmq:3-management
-    environment:
-        - RABBITMQ_DEFAULT_USER=guest
-        - RABBITMQ_DEFAULT_PASS=guest
-    ports:
-        # AMQP protocol port
-        - '5670:5670'
-        # HTTP management UI
-        - '15670:15670'
+#  rabbitmq:
+#    container_name: "rabbitmq"
+#    image: rabbitmq:3-management
+#    environment:
+#        - RABBITMQ_DEFAULT_USER=guest
+#        - RABBITMQ_DEFAULT_PASS=guest
+#    ports:
+#        # AMQP protocol port
+#        - '5674:5674'
+#        # HTTP management UI
+#        - '15674:15674'
 
