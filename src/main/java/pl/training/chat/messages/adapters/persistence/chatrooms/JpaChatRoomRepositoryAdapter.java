@@ -1,6 +1,7 @@
 package pl.training.chat.messages.adapters.persistence.chatrooms;
 
 import lombok.Setter;
+import pl.training.chat.messages.adapters.persistence.messages.ChatMessageEntity;
 import pl.training.chat.messages.adapters.persistence.messages.JpaChatMessageMapper;
 import pl.training.chat.messages.domain.models.ChatMessage;
 import pl.training.chat.messages.domain.models.ChatRoom;
@@ -8,7 +9,10 @@ import pl.training.chat.messages.ports.ChatRoomRepository;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Transactional
 public class JpaChatRoomRepositoryAdapter implements ChatRoomRepository {
@@ -41,9 +45,16 @@ public class JpaChatRoomRepositoryAdapter implements ChatRoomRepository {
     }
 
     @Override
-    public void getMemberHistory(String memberName, String roomName) {
-        var roomEntity = jpaChatRoomRepository.getByName(roomName);
-        roomEntity.get().getMessages();
+    public List<ChatMessage> getMemberHistory(String memberName, String roomName) {
+        var chatMessageEntitiesOptionalList = jpaChatRoomRepository.getByName(roomName).map(ChatRoomEntity::getMessages);
+        var chatMessageEntitiesExist = chatMessageEntitiesOptionalList.isPresent();
+        if (chatMessageEntitiesExist) {
+            return chatMessageEntitiesOptionalList.get().stream()
+                    .filter(chatMessageEntity -> chatMessageEntity.getSenderName().equals(memberName))
+                    .map(chatMessageEntity -> jpaChatMessageMapper.toDomain(chatMessageEntity))
+                    .collect(Collectors.toList());
+        }
+        return new ArrayList<>();
     }
 
     @Override

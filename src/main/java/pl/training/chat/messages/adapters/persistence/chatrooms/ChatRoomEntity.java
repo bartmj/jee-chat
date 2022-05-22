@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Getter
+@Table(name = "rooms")
 public class ChatRoomEntity {
 
     @Id
@@ -20,11 +21,12 @@ public class ChatRoomEntity {
     String roomName;
     @ElementCollection
     List<String> members;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     List<ChatMessageEntity> messages;
 
     public ChatRoomEntity(String name, List<String> members) {
-
+        this.roomName = name;
+        this.members = members;
     }
 
 }

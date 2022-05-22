@@ -3,6 +3,7 @@ package pl.training.chat.messages.ports;
 import pl.training.chat.messages.domain.models.ChatMessage;
 import pl.training.chat.messages.domain.models.ChatRoom;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ChatRoomRepository {
@@ -12,7 +13,7 @@ public interface ChatRoomRepository {
 
     void addMemberToRoom(String guestName, String roomName);
 
-    void getMemberHistory(String memberName, String roomName);
+    List<ChatMessage> getMemberHistory(String memberName, String roomName);
 
     void addMessageToRoom(ChatMessage chatMessage);
 }

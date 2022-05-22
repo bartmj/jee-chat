@@ -5,16 +5,14 @@ import lombok.Setter;
 import pl.training.chat.messages.adapters.JmsMessageService;
 import pl.training.chat.messages.domain.exceptions.RoomNotFoundException;
 import pl.training.chat.messages.domain.models.ChatMessage;
-import pl.training.chat.messages.domain.models.ChatRoom;
 import pl.training.chat.messages.ports.ChatRoomRepository;
 import pl.training.chat.messages.ports.MessageRepository;
 import pl.training.chat.messages.ports.MessageService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import javax.persistence.NoResultException;
 import java.io.IOException;
-import java.util.Optional;
+import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 @Singleton
@@ -47,8 +45,9 @@ public class ChatMessageService implements MessageService {
     }
 
     @Override
-    public void getRoomHistoryOfMember(String memberName, String roomName) {
-        chatRoomRepository.getMemberHistory(memberName, roomName);
+    public List<ChatMessage> getRoomHistoryOfMember(String memberName, String roomName) {
+        var memberHistory = chatRoomRepository.getMemberHistory(memberName, roomName);
+        return memberHistory;
     }
 }
 

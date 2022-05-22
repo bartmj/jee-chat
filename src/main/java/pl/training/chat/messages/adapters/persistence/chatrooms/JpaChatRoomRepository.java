@@ -35,9 +35,12 @@ public class JpaChatRoomRepository {
         });
     }
 
-    public void addMessageToRoom(ChatMessageEntity chatMessage) {
-        getByName(chatMessage.getRoomName()).ifPresent(c -> {
-            c.getMessages().add(chatMessage);
+    public void addMessageToRoom(ChatMessageEntity chatMessageEntity) {
+        var chatRoomEntityName = chatMessageEntity.getRoomName();
+        var roomEntityOptional = getByName(chatRoomEntityName);
+        roomEntityOptional.ifPresent(r -> {
+            r.getMessages().add(chatMessageEntity);
+            entityManager.persist(r);
         });
     }
 }

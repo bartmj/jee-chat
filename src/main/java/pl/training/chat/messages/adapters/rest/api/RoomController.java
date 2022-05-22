@@ -33,4 +33,5 @@ public class RoomController {
         }
         return Response.status(Response.Status.OK).build();
     }
+
 }

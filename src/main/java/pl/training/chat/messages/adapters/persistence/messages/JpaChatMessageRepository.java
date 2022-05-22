@@ -12,7 +12,7 @@ public class JpaChatMessageRepository {
     @PersistenceContext
     EntityManager entityManager;
 
-    public void save(ChatMessageEntity chatMessage) {
-        entityManager.persist(chatMessage);
+    public void save(ChatMessageEntity chatMessageEntity) {
+        entityManager.persist(chatMessageEntity);
     }
 }
